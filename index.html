@@ -10,19 +10,38 @@
         <header>
             <!--img src="images/logo.png" alt="Logo HBNB" class="logo"-->
             <nav>
-                <a href="index.html">Accueil</a>
-                <a href="intervention.html">Entretient</a>
-                <a href="arbre.html">Généalogie</a>
-                <a href="contact.html">Contact</a>
-                <a href="login.html">Connection</a>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="intervention.html">Entretien</a></li>
+                    <li><a href="arbre.html">Généalogie</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Connexion</a></li>
+                </ul>
             </nav>
         </header>
         <main>
-            <h2>Titre Nettoyage</h2>
-            <h2>Titre Arbre</h2>
+            <div class="split-container">
+                <!-- Bloc gauche -->
+                <div class="split-block left-block" onclick="navigateTo('entretien.html')"">
+                    <div class="block-content">
+                        <h2>Titre Nettoyage</h2>
+                        <p>Découvrez nos services de nettoyage</p>
+                        <a href="entretien.html" class="btn">En savoir plus</a>
+                    </div>
+                </div>
+                <!-- Bloc droit -->
+                <div class="split-block right-block" onclick="navigateTo('arbre.html')">
+                    <div class="block-content">
+                        <h2>Titre Arbre</h2>
+                        <p>Arbres familiaux</p>
+                        <a href="arbre.html" class="btn">Plus d'infos</a>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer>
             <small>Copyright © 2025 Mémoria.com. Tous droits réservés.</small>
         </footer>
+        <script src="script.js"></script>
     </body>
 </html>
