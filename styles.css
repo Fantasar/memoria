@@ -1,0 +1,155 @@
+/*======== SOMMAIRE ========
+1.
+2.
+3.
+4.
+5.
+============================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+/*========= NAVBAR =========*/
+
+nav {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1rem 2rem;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+/*====== CONTAINER BLOCS ======*/
+
+.split-container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.split-block {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: flex 0.5s ease;
+}
+
+.split-block:hover {
+    flex: 1.2;
+}
+
+/*======= BLOCS GAUCHE ========*/
+
+.left-block {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/*======= BLOCS DROITE ========*/
+
+.right-block {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/*====== CONTENUE DES BLOCS =======*/
+
+.block-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+}
+
+.block-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); 
+}
+
+.block-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.block-content .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: white;
+    color: #333;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.block-content .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* ========= HOVER =======*/
+
+.split-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0);
+    transition: background 0.3s;
+}
+
+.split-block:hover::before {
+    background: rgba(0,0,0,0.1);   
+}
+
+/* ======= RESPONSIVE =======*/
+
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+    }
+
+    .split-block:hover {
+        flex: 1.1;
+    }
+
+    .block-content h2 {
+        font-size: 2rem;
+    }
+
+    .block-content p {
+        font-size: 1rem;
+    }
+}
