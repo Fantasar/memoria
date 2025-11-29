@@ -1,47 +1,258 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mémoria, l'entretient de vos souvenires</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <header>
-            <!--img src="images/logo.png" alt="Logo HBNB" class="logo"-->
-            <nav>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="intervention.html">Entretien</a></li>
-                    <li><a href="arbre.html">Généalogie</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html">Connexion</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <div class="split-container">
-                <!-- Bloc gauche -->
-                <div class="split-block left-block" onclick="navigateTo('entretien.html')"">
-                    <div class="block-content">
-                        <h2>Titre Nettoyage</h2>
-                        <p>Découvrez nos services de nettoyage</p>
-                        <a href="entretien.html" class="btn">En savoir plus</a>
-                    </div>
-                </div>
-                <!-- Bloc droit -->
-                <div class="split-block right-block" onclick="navigateTo('arbre.html')">
-                    <div class="block-content">
-                        <h2>Titre Arbre</h2>
-                        <p>Arbres familiaux</p>
-                        <a href="arbre.html" class="btn">Plus d'infos</a>
-                    </div>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mémoria - L'entretien de vos souvenirs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar discrète -->
+    <nav class="nav-bar">
+        <div class="logo">Mémoria</div>
+        <div class="nav-right">
+            <a href="boutique.html" class="nav-btn">Boutique</a>
+            <a href="login.html" class="nav-btn nav-btn-primary">Connexion</a>
+            <div class="nav-menu">
+                <svg width="40" height="30" viewBox="0 0 40 30">
+                    <line class="line line1" x1="0" y1="5" x2="40" y2="5" stroke="white" stroke-width="3"/>
+                    <line class="line line2" x1="0" y1="15" x2="40" y2="15" stroke="white" stroke-width="3"/>
+                    <line class="line line3" x1="0" y1="25" x2="40" y2="25" stroke="white" stroke-width="3"/>
+                </svg>
             </div>
-        </main>
-        <footer>
-            <small>Copyright © 2025 Mémoria.com. Tous droits réservés.</small>
-        </footer>
-        <script src="script.js"></script>
-    </body>
+        </div>
+    </nav>
+
+    <!-- Menu plein écran -->
+    <div class="menu-container">
+        <div class="menu-content">
+            <div class="menu-level main-menu active">
+                <ul class="list-items">
+                    <li><a href="#hero" class="menu-link">Accueil</a></li>
+                    <li><a href="#" class="menu-link has-submenu" data-submenu="entretien">Entretien</a></li>
+                    <li><a href="#" class="menu-link has-submenu" data-submenu="genealogie">Généalogie</a></li>
+                    <li><a href="#contact" class="menu-link">Contact</a></li>
+                    <li><a href="login.html" class="menu-link">Connexion</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-level submenu" id="submenu-entretien">
+                <div class="submenu-header">
+                    <button class="back-btn">← Retour</button>
+                    <h3>Entretien</h3>
+                </div>
+                <ul class="list-items submenu-items">
+                    <li><a href="entretien-tombes.html">Entretien de tombes</a></li>
+                    <li><a href="entretien-monuments.html">Nettoyage monuments</a></li>
+                    <li><a href="entretien-tarifs.html">Nos tarifs</a></li>
+                    <li><a href="entretien-devis.html">Demander un devis</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-level submenu" id="submenu-genealogie">
+                <div class="submenu-header">
+                    <button class="back-btn">← Retour</button>
+                    <h3>Généalogie</h3>
+                </div>
+                <ul class="list-items submenu-items">
+                    <li><a href="arbre-creer.html">Créer un arbre</a></li>
+                    <li><a href="arbre-consulter.html">Consulter mon arbre</a></li>
+                    <li><a href="arbre-recherche.html">Recherche d'ancêtres</a></li>
+                    <li><a href="arbre-import.html">Importer des données</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Hero -->
+    <section class="hero" id="hero">
+        <!-- Étoiles variées et discrètes (30 étoiles) -->
+        <div class="star star-white" style="width: 2px; height: 2px; top: 10%; left: 15%; animation-delay: 0s;"></div>
+        <div class="star star-cross" style="top: 8%; left: 45%; animation-delay: 0.5s;"></div>
+        <div class="star star-white" style="width: 3px; height: 3px; top: 20%; left: 80%; animation-delay: 1s;"></div>
+        <div class="star star-blue" style="width: 2px; height: 2px; top: 15%; left: 65%; animation-delay: 1.8s;"></div>
+        <div class="star star-white" style="width: 2px; height: 2px; top: 30%; left: 25%; animation-delay: 2s;"></div>
+        <div class="star star-diamond" style="top: 25%; left: 90%; animation-delay: 2.5s;"></div>
+        <div class="star star-white" style="width: 3px; height: 3px; top: 50%; right: 15%; animation-delay: 0.5s;"></div>
+        <div class="star star-blue" style="width: 1px; height: 1px; top: 45%; left: 10%; animation-delay: 3s;"></div>
+        <div class="star star-white" style="width: 2px; height: 2px; top: 70%; left: 60%; animation-delay: 1.5s;"></div>
+        <div class="star star-cross" style="top: 65%; left: 85%; animation-delay: 2.2s;"></div>
+        <div class="star star-white" style="width: 3px; height: 3px; top: 80%; left: 30%; animation-delay: 2.5s;"></div>
+        <div class="star star-white" style="width: 2px; height: 2px; top: 15%; right: 40%; animation-delay: 3s;"></div>
+        <div class="star star-blue" style="width: 2px; height: 2px; top: 35%; right: 25%; animation-delay: 1.2s;"></div>
+        <div class="star star-diamond" style="top: 55%; left: 40%; animation-delay: 0.8s;"></div>
+        <div class="star star-white" style="width: 3px; height: 3px; bottom: 20%; left: 70%; animation-delay: 0.8s;"></div>
+        <div class="star star-cross" style="bottom: 25%; left: 20%; animation-delay: 1.7s;"></div>
+        <div class="star star-white" style="width: 1px; height: 1px; top: 40%; right: 10%; animation-delay: 2.8s;"></div>
+        <div class="star star-blue" style="width: 3px; height: 3px; bottom: 30%; right: 30%; animation-delay: 0.3s;"></div>
+        <div class="star star-white" style="width: 2px; height: 2px; top: 60%; left: 5%; animation-delay: 1.9s;"></div>
+        <div class="star star-diamond" style="bottom: 15%; right: 20%; animation-delay: 2.3s;"></div>
+        <!-- Nouvelles étoiles -->
+        <div class="star star-white" style="width: 1px; height: 1px; top: 12%; left: 55%; animation-delay: 0.7s;"></div>
+        <div class="star star-blue" style="width: 2px; height: 2px; top: 22%; left: 35%; animation-delay: 1.4s;"></div>
+        <div class="star star-cross" style="top: 38%; left: 72%; animation-delay: 2.1s;"></div>
+        <div class="star star-white" style="width: 2px; height: 2px; top: 48%; left: 50%; animation-delay: 0.9s;"></div>
+        <div class="star star-diamond" style="top: 58%; right: 35%; animation-delay: 1.6s;"></div>
+        <div class="star star-white" style="width: 3px; height: 3px; top: 68%; left: 12%; animation-delay: 2.7s;"></div>
+        <div class="star star-blue" style="width: 1px; height: 1px; top: 75%; right: 45%; animation-delay: 0.4s;"></div>
+        <div class="star star-white" style="width: 2px; height: 2px; bottom: 28%; left: 48%; animation-delay: 1.1s;"></div>
+        <div class="star star-cross" style="bottom: 35%; right: 12%; animation-delay: 2.9s;"></div>
+        <div class="star star-white" style="width: 1px; height: 1px; top: 18%; right: 8%; animation-delay: 0.6s;"></div>
+
+        <!-- Étoiles filantes (4 étoiles filantes discrètes) -->
+        <div class="shooting-star" style="top: 15%; left: 20%; animation-delay: 3s;"></div>
+        <div class="shooting-star" style="top: 40%; left: 70%; animation-delay: 8s;"></div>
+        <div class="shooting-star" style="top: 65%; left: 10%; animation-delay: 13s;"></div>
+        <div class="shooting-star" style="top: 25%; left: 85%; animation-delay: 18s;"></div>
+
+        <h1>Mémoria</h1>
+        <p>L'entretien de vos souvenirs avec passion</p>
+        <a href="#services" class="cta-button">Découvrir nos services</a>
+    </section>
+
+    <!-- Section Statistiques -->
+    <section class="stats-section" id="stats">
+        <div class="stats-container">
+            <div class="stat-card" data-target="500">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Tombes entretenues</div>
+            </div>
+            <div class="stat-card" data-target="15">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Années d'expérience</div>
+            </div>
+            <div class="stat-card" data-target="98">
+                <div class="stat-number">0</div>
+                <div class="stat-label">% de satisfaction</div>
+            </div>
+            <div class="stat-card" data-target="1200">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Arbres généalogiques</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vague de transition -->
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,50 C300,100 500,0 800,50 C1000,80 1100,20 1200,50 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.05)"></path>
+        </svg>
+    </div>
+
+    <!-- 2 Blocs principaux -->
+    <section class="main-blocks" id="services">
+        <div class="main-block left" onclick="window.location.href='entretien.html'">
+            <div class="main-block-content">
+                <h2>Entretien</h2>
+                <p>Nettoyage professionnel de tombes et monuments</p>
+                <a href="entretien.html" class="btn" onclick="event.stopPropagation()">En savoir plus</a>
+            </div>
+        </div>
+        <div class="main-block right" onclick="window.location.href='arbre.html'">
+            <div class="main-block-content">
+                <h2>Généalogie</h2>
+                <p>Créez et explorez votre arbre généalogique</p>
+                <a href="arbre.html" class="btn" onclick="event.stopPropagation()">Découvrir</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 Blocs en quinconce -->
+    <section class="zigzag-section">
+        <div class="zigzag-container">
+            <div class="zigzag-block">
+                <div class="zigzag-content">
+                    <h3>À propos de nous</h3>
+                    <p>Depuis 2010, Mémoria accompagne les familles dans l'entretien et la préservation de leurs souvenirs. Notre équipe passionnée met son expertise au service de la mémoire et du respect des défunts.</p>
+                </div>
+                <div class="zigzag-image">ℹ</div>
+            </div>
+
+            <div class="zigzag-block">
+                <div class="zigzag-content">
+                    <h3>Nos partenaires</h3>
+                    <p>Nous collaborons avec les meilleurs artisans et fournisseurs pour garantir des prestations de qualité. Ensemble, nous œuvrons pour préserver votre patrimoine familial avec le plus grand soin.</p>
+                </div>
+                <div class="zigzag-image">🤝</div>
+            </div>
+
+            <div class="zigzag-block">
+                <div class="zigzag-content">
+                    <h3>Questions fréquentes</h3>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Quels sont vos délais d'intervention ?</span>
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Nous intervenons généralement sous 7 jours après votre demande. Pour les urgences, nous proposons des interventions sous 48h.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Proposez-vous des forfaits d'entretien régulier ?</span>
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Oui, nous proposons des forfaits mensuels, trimestriels et annuels adaptés à vos besoins et votre budget.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Comment créer mon arbre généalogique ?</span>
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Inscrivez-vous gratuitement, puis ajoutez vos informations familiales. Notre interface intuitive vous guide pas à pas.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Intervenez-vous dans toute la France ?</span>
+                                <span class="faq-icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Oui, nous intervenons sur l'ensemble du territoire français. Contactez-nous pour connaître nos disponibilités dans votre région.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="zigzag-image">?</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer moderne -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mémoria</h3>
+                <p>L'entretien de vos souvenirs depuis 2010</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#">Entretien de tombes</a>
+                <a href="#">Généalogie</a>
+                <a href="#">Restauration</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>contact@memoria.fr</p>
+                <p>06 12 34 56 78</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Mémoria. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
 </html>
