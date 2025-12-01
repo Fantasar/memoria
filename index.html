@@ -135,10 +135,16 @@
     <!-- Vague de transition -->
     <div class="wave-divider">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,50 C300,100 500,0 800,50 C1000,80 1100,20 1200,50 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.05)"></path>
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgba(230, 180, 130, 0.4);stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:rgba(102, 126, 234, 0.3);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgba(150, 200, 230, 0.4);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path d="M0,50 C300,100 500,0 800,50 C1000,80 1100,20 1200,50 L1200,120 L0,120 Z" fill="url(#waveGradient)"></path>
         </svg>
     </div>
-
     <!-- 2 Blocs principaux -->
     <section class="main-blocks" id="services">
         <div class="main-block left" onclick="window.location.href='entretien.html'">

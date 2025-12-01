@@ -501,7 +501,11 @@ body {
     width: 100%;
     overflow: hidden;
     line-height: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(to right, 
+        rgba(230, 180, 130, 0.3) 0%,      /* Ton chaud gauche */
+        rgba(102, 126, 234, 0.2) 50%,     /* Bleu central */
+        rgba(150, 200, 230, 0.3) 100%     /* Ton froid droite */
+    );
 }
 
 .wave-divider svg {
@@ -514,13 +518,18 @@ body {
 /* 2 Blocs principaux */
 .main-blocks {
     display: flex;
-    height: 100vh;
+    height: 90vh; /* Un peu moins de hauteur pour laisser respirer */
+    margin: 5vh 3rem; /* Marges autour */
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    overflow: hidden; /* Important pour que les images restent dans le cadre */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    position: relative;
 }
 
 .main-block {
     flex: 1;
     position: relative;
-    overflow: hidden;
     cursor: pointer;
     transition: flex 0.5s ease;
     display: flex;
@@ -533,12 +542,49 @@ body {
 }
 
 .main-block.left {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
+    background-image: url('images/image_gauche.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;}
 
 .main-block.right {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background-image: url('images/image_droite.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;}
+
+/* Optionnel : ajouter un overlay sombre pour que le texte ressorte mieux */
+.main-block::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: -1;
 }
+
+.main-block:hover::before {
+    opacity: 1;
+}
+
+/* S'assurer que le contenu soit au-dessus de l'overlay */
+.main-block-content {
+    position: relative;
+    z-index: 2;
+}
+
 
 .main-block-content {
     text-align: center;
@@ -594,6 +640,18 @@ body {
 .main-block-content .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Ligne de séparation centrale subtile */
+.main-block.left::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10%;
+    bottom: 10%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 3;
 }
 
 /* 3 Blocs en quinconce */
