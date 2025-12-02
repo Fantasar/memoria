@@ -2,9 +2,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.querySelector('.nav-menu');
     const menuContainer = document.querySelector('.menu-container');
     const mainMenu = document.querySelector('.main-menu');
+    const dots = document.querySelectorAll('.dot-nav .dot');
+    const sections = ['#hero', '#stats', '#services', '#contact'].map(id => document.querySelector(id));
     let lettersAnimated = false;
 
-    // Fonction pour animer les lettres
+    /* ----------------------------------------
+       SCROLLSPY DOTS - VERSION SIMPLIFIÉE
+    -----------------------------------------*/
+    function updateDots() {
+        const viewportCheck = window.innerHeight * 0.33; // Ajuste la précision ICI
+
+        sections.forEach((section, i) => {
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top <= viewportCheck && rect.bottom >= viewportCheck) {
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[i].classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateDots);
+    updateDots(); // Initial
+
+
+    /* ----------------------------------------
+       NAVIGATION AU CLIC SUR LES POINTS
+    -----------------------------------------*/
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            sections[i].scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+
+    /* ----------------------------------------
+       ANIMATION DES LETTRES
+    -----------------------------------------*/
     function animateLetters(element) {
         const text = element.textContent;
         element.textContent = '';
@@ -17,14 +53,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Toggle menu hamburger
+
+    /* ----------------------------------------
+       MENU HAMBURGER
+    -----------------------------------------*/
     if (menuIcon && menuContainer) {
         menuIcon.addEventListener('click', () => {
             menuIcon.classList.toggle('active');
             menuContainer.classList.toggle('active');
             
             if (menuContainer.classList.contains('active')) {
-                // Animer les lettres seulement la première fois que le menu s'ouvre
                 if (!lettersAnimated) {
                     setTimeout(() => {
                         document.querySelectorAll('.list-items a').forEach(link => {
@@ -38,7 +76,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Gestion des sous-menus
+
+    /* ----------------------------------------
+       GESTION DES SOUS-MENUS
+    -----------------------------------------*/
     const hasSubmenuLinks = document.querySelectorAll('.has-submenu');
     hasSubmenuLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -48,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Boutons retour
     const backButtons = document.querySelectorAll('.back-btn');
     backButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -76,7 +116,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 400);
     }
 
-    // Fermeture du menu sur clic de lien
+
+    /* ----------------------------------------
+       FERMETURE DU MENU SUR CLIC
+    -----------------------------------------*/
     document.querySelectorAll('.menu-link:not(.has-submenu)').forEach(link => {
         link.addEventListener('click', () => {
             menuIcon.classList.remove('active');
@@ -93,7 +136,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Animations au scroll
+
+    /* ----------------------------------------
+       ANIMATIONS AU SCROLL
+    -----------------------------------------*/
     const observerOptions = {
         threshold: 0.2,
         rootMargin: '0px 0px -100px 0px'
@@ -114,7 +160,10 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // Animation des compteurs
+
+    /* ----------------------------------------
+       COMPTEURS CHIFFRÉS
+    -----------------------------------------*/
     function animateCounter(element) {
         const target = parseInt(element.getAttribute('data-target'));
         const numberElement = element.querySelector('.stat-number');
@@ -133,7 +182,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 16);
     }
 
-    // Smooth scroll
+
+    /* ----------------------------------------
+       SMOOTH SCROLL
+    -----------------------------------------*/
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -147,21 +199,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // FAQ Accordéon
+
+    /* ----------------------------------------
+       FAQ ACCORDÉON
+    -----------------------------------------*/
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const faqItem = question.parentElement;
             const isActive = faqItem.classList.contains('active');
             
-            // Fermer tous les autres items
             document.querySelectorAll('.faq-item').forEach(item => {
                 item.classList.remove('active');
             });
             
-            // Ouvrir celui cliqué si il n'était pas déjà ouvert
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
+            if (!isActive) faqItem.classList.add('active');
         });
     });
+
 });

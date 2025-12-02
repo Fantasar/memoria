@@ -263,7 +263,7 @@ body {
 
 /* Section Hero */
 .hero {
-    height: 100vh;
+    height: 65vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -289,6 +289,22 @@ body {
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
+
+.stats-image-container {
+    position: absolute;
+    top: -555px;
+    right: 0;
+    width: 838px; /* tu peux modifier */
+    height: auto;
+}
+
+.stats-image {
+    width: 100%;
+    height: auto;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 
 .cta-button {
     background: white;
@@ -446,11 +462,53 @@ body {
     50% { opacity: 0.9; transform: scale(1.3); }
 }
 
+.box-hero {
+    display: inline-block; /* taille adaptée au contenu */
+    padding: 2em 3em;
+    position: relative;
+}
+
+.box-hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: calc(100% + 3.5cm); /* augmente la hauteur de 2 cm */
+    border: 3px solid #ffffff;
+    box-sizing: border-box;
+    border-top-left-radius: 120px;  /* arrondi coin supérieur gauche */
+    border-top-right-radius: 120px; /* arrondi coin supérieur droit */
+    animation: draw-border 5s forwards;
+    z-index: 10; /* <-- fait passer la bordure au-dessus */
+    pointer-events: none; /* Permet de cliquer à travers la bordure */
+}
+
+@keyframes draw-border {
+    0% {
+        clip-path: inset(0 100% 100% 0); /* rectangle invisible */
+    }
+    20% {
+        clip-path: inset(0 0 100% 0);   /* ligne du haut dessinée */
+    }
+    60% {
+        clip-path: inset(0 0 0 0);      /* lignes gauche et droite dessinées */
+    }
+    100% {
+        clip-path: inset(0 0 0 0);      /* rectangle complet */
+    }
+}
+
+.content-hero {
+    text-align: center;
+    position: relative; /* pour que le rectangle reste derrière */
+    z-index: 1;
+}
+
 /* Section Statistiques */
 .stats-section {
-    padding: 5rem 2rem;
+    padding: 2rem 2rem;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     position: relative;
+    margin-top: 2rem;
 }
 
 .stats-container {
@@ -467,7 +525,7 @@ body {
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.6s;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px);
@@ -485,7 +543,7 @@ body {
 }
 
 .stat-number {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
@@ -832,4 +890,38 @@ body {
     .nav-right {
         gap: 0.8rem;
     }
+}
+
+/* Barre verticale à points (scrollspy) */
+.dot-nav {
+    position: fixed;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+}
+
+.dot-nav .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: 0.3s ease;
+    background: transparent;
+}
+
+.dot-nav .dot:hover {
+    transform: scale(1.3);
+    opacity: 1;
+}
+
+.dot-nav .dot.active {
+    background: white;
+    opacity: 1;
+    transform: scale(1.2);
 }

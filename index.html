@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation verticale à points -->
+<div class="dot-nav">
+  <a href="#hero" class="dot active"></a>
+  <a href="#stats" class="dot"></a>
+  <a href="#services" class="dot"></a>
+  <a href="#contact" class="dot"></a>
+</div>
     <!-- Navbar discrète -->
     <nav class="nav-bar">
         <div class="logo">Mémoria</div>
@@ -105,17 +112,28 @@
         <div class="shooting-star" style="top: 65%; left: 10%; animation-delay: 13s;"></div>
         <div class="shooting-star" style="top: 25%; left: 85%; animation-delay: 18s;"></div>
 
-        <h1>Mémoria</h1>
-        <p>L'entretien de vos souvenirs avec passion</p>
-        <a href="#services" class="cta-button">Découvrir nos services</a>
+        <!-- Début du conteneur animé -->
+        <div class="box-hero">
+            <div class="content-hero">
+                <h1>Mémoria</h1>
+                <p>L'entretien de vos souvenirs avec passion</p>
+                <a href="#services" class="cta-button">Découvrir nos services</a>
+            </div>
+        </div>
+        <!-- Fin du conteneur animé -->
     </section>
 
     <!-- Section Statistiques -->
     <section class="stats-section" id="stats">
+        <!-- Image au-dessus -->
+        <div class="stats-image-container">
+            <img src="images/papy.png" class="stats-image" />
+        </div>
+
         <div class="stats-container">
             <div class="stat-card" data-target="500">
-                <div class="stat-number">0</div>
-                <div class="stat-label">Tombes entretenues</div>
+            <div class="stat-number">0</div>
+            <div class="stat-label">Tombes entretenues</div>
             </div>
             <div class="stat-card" data-target="15">
                 <div class="stat-number">0</div>
@@ -171,7 +189,7 @@
                     <h3>À propos de nous</h3>
                     <p>Depuis 2010, Mémoria accompagne les familles dans l'entretien et la préservation de leurs souvenirs. Notre équipe passionnée met son expertise au service de la mémoire et du respect des défunts.</p>
                 </div>
-                <div class="zigzag-image">ℹ</div>
+                <div class="zigzag-image"><img src="images/Portrait.jpg" alt="Portrait"></div>
             </div>
 
             <div class="zigzag-block">
@@ -179,7 +197,7 @@
                     <h3>Nos partenaires</h3>
                     <p>Nous collaborons avec les meilleurs artisans et fournisseurs pour garantir des prestations de qualité. Ensemble, nous œuvrons pour préserver votre patrimoine familial avec le plus grand soin.</p>
                 </div>
-                <div class="zigzag-image">🤝</div>
+                <div class="zigzag-image"><img src="images/Partenaire.jpg" alt="Partenaire" width="500" height="700"></div>
             </div>
 
             <div class="zigzag-block">
@@ -224,7 +242,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="zigzag-image">?</div>
+                <div class="zigzag-image"><img src="images/livres.jpg" alt="livres" width="450" height="500"></div>
             </div>
         </div>
     </section>
